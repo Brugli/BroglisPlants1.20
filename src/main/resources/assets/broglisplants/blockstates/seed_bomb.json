@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "age=0": {"model": "broglisplants:block/seed_bomb_stem"},
+    "age=1": {"model": "broglisplants:block/seed_bomb_small"},
+    "age=2": {"model": "broglisplants:block/seed_bomb_small"},
+    "age=3": {"model": "broglisplants:block/seed_bomb"}
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "broglisplants:block/sandbox_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "broglisplants:block/sandbox_wood"
+    },
+    "axis=z": {
+      "model": "broglisplants:block/sandbox_wood",
+      "x": 90
+    }
+  }
+}

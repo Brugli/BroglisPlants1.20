@@ -1,0 +1,28 @@
+{
+  "block.broglisplants.mandrake_root": "Mandrake Root",
+  "block.broglisplants.flytrap": "Flytrap",
+  "block.broglisplants.pitcher_plant": "Pitfall Plant",
+  "block.broglisplants.sundew": "Sundew",
+  "block.broglisplants.stinky_flower": "Stinky Flower",
+  "block.broglisplants.giant_lily": "Giant Water Lily",
+  "block.broglisplants.giant_lily_edge": "Giant Water Lily",
+  "block.broglisplants.giant_lily_corner": "Giant Water Lily",
+  "block.broglisplants.stem": "Giant Water Lily Stem",
+  "block.broglisplants.seed_bomb": "Sandbox Seed Bomb",
+  "block.broglisplants.sandbox_log": "Sandbox Log",
+  "block.broglisplants.sandbox_wood": "Sandbox Wood",
+  "block.broglisplants.sandbox_leaves": "Sandbox Leaves",
+  "block.broglisplants.sandbox_sapling": "Sandbox Sapling",
+  "block.broglisplants.totem": "Totem",
+  "block.broglisplants.thorn": "Thorn",
+
+  "entity.broglisplants.mandrake_entity": "Mandrake",
+  "entity.broglisplants.primed_seed_bomb": "Primed Sandbox Seed Bomb",
+
+  "sounds.broglisplants.pitcher_plant_burps": "Pitfall Plant Burps",
+  "sounds.broglisplants.mandrake_cry_1": "Mandrake Cries",
+  "sounds.broglisplants.mandrake_cry_2": "Mandrake Cries",
+  "sounds.broglisplants.mandrake_cry_3": "Mandrake Cries",
+  "sounds.broglisplants.mandrake_cry_4": "Mandrake Cries",
+  "sounds.broglisplants.mandrake_cry_5": "Mandrake Cries"
+}

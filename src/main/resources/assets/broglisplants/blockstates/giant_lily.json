@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "conditional=true": {"model": "broglisplants:block/giant_lily"},
+    "conditional=false": {"model": "broglisplants:block/small_giant_lily"}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=east":
+      { "model": "broglisplants:block/giant_lily_edge", "y": 90},
+    "facing=north":
+      { "model": "broglisplants:block/giant_lily_edge"},
+    "facing=south":
+      { "model": "broglisplants:block/giant_lily_edge", "y": 180},
+    "facing=west":
+      { "model": "broglisplants:block/giant_lily_edge", "y": 270}
+  }
+}

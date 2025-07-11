@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp"
+  ],
+  "features": "broglisplants:pitcher_plant_placed",
+  "step": "vegetal_decoration"
+}

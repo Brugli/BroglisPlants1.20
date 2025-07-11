@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "broglisplants:block/sandbox_leaves_fast"
+  }
+}

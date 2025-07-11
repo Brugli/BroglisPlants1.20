@@ -1,0 +1,38 @@
+{
+  "pitcher_plant_burps": {
+    "subtitle": "sounds.broglisplants.pitcher_plant_burps",
+    "sounds": [
+      "broglisplants:pitcher_plant_burps"
+    ]
+  },
+  "mandrake_cry_1": {
+    "subtitle": "sounds.broglisplants.mandrake_cry_1",
+    "sounds": [
+      "broglisplants:mandrake_cry_1"
+    ]
+  },
+  "mandrake_cry_2": {
+    "subtitle": "sounds.broglisplants.mandrake_cry_2",
+    "sounds": [
+      "broglisplants:mandrake_cry_2"
+    ]
+  },
+  "mandrake_cry_3": {
+    "subtitle": "sounds.broglisplants.mandrake_cry_3",
+    "sounds": [
+      "broglisplants:mandrake_cry_3"
+    ]
+  },
+  "mandrake_cry_4": {
+    "subtitle": "sounds.broglisplants.mandrake_cry_4",
+    "sounds": [
+      "broglisplants:mandrake_cry_4"
+    ]
+  },
+  "mandrake_cry_5": {
+    "subtitle": "sounds.broglisplants.mandrake_cry_5",
+    "sounds": [
+      "broglisplants:mandrake_cry_5"
+    ]
+  }
+}

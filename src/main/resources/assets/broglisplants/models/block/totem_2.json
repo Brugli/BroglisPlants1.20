@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "broglisplants:block/totem_top",
+    "side": "broglisplants:block/totem_2"
+  }
+}

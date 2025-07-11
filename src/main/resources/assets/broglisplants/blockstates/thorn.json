@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "facing=east": [
+      { "model": "broglisplants:block/thorns_1", "y": 90},
+      { "model": "broglisplants:block/thorns_2", "y": 90},
+      { "model": "broglisplants:block/thorns_3", "y": 90},
+      { "model": "broglisplants:block/thorns_4", "y": 90},
+      { "model": "broglisplants:block/thorns_5", "y": 90}
+    ],
+    "facing=north": [
+      { "model": "broglisplants:block/thorns_1"},
+      { "model": "broglisplants:block/thorns_2"},
+      { "model": "broglisplants:block/thorns_3"},
+      { "model": "broglisplants:block/thorns_4"},
+      { "model": "broglisplants:block/thorns_5"}
+    ],
+    "facing=south": [
+      { "model": "broglisplants:block/thorns_1", "y": 180},
+      { "model": "broglisplants:block/thorns_2", "y": 180},
+      { "model": "broglisplants:block/thorns_3", "y": 180},
+      { "model": "broglisplants:block/thorns_4", "y": 180},
+      { "model": "broglisplants:block/thorns_5", "y": 180}
+    ],
+    "facing=west": [
+      { "model": "broglisplants:block/thorns_1", "y": 270},
+      { "model": "broglisplants:block/thorns_2", "y": 270},
+      { "model": "broglisplants:block/thorns_3", "y": 270},
+      { "model": "broglisplants:block/thorns_4", "y": 270},
+      { "model": "broglisplants:block/thorns_5", "y": 270}
+    ]
+  }
+}

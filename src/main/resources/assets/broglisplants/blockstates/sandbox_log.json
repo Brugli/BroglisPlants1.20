@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "broglisplants:block/sandbox_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "broglisplants:block/sandbox_log"
+    },
+    "axis=z": {
+      "model": "broglisplants:block/sandbox_log_horizontal",
+      "x": 90
+    }
+  }
+}
