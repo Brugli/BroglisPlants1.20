@@ -85,8 +85,7 @@ public class BroglisPlantsConfiguredFeatures {
                 new DarkOakTrunkPlacer(6, 2, 1),
                 BlockStateProvider.simple(BroglisPlantsBlocks.SANDBOX_LEAVES.get()), new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
                 new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty()))
-//                .decorators(List.of(new AttachedToLeavesDecorator(0.14F, 1, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BroglisPlantsBlocks.SEED_BOMB.get().defaultBlockState()), SeedBomb.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN))))
-                .ignoreVines().build());
+                .decorators(List.of(new AttachedToLeavesDecorator(0.14F, 1, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BroglisPlantsBlocks.SEED_BOMB.get().defaultBlockState()), SeedBomb.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN)))).ignoreVines().build());
 
         register(context, GIANT_LILY_KEY, Feature.RANDOM_PATCH,
                 FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BroglisPlantsBlocks.GIANT_LILY.get()))));
