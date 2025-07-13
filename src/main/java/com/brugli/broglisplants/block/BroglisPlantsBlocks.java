@@ -2,7 +2,7 @@ package com.brugli.broglisplants.block;
 
 import com.brugli.broglisplants.BroglisPlants;
 import com.brugli.broglisplants.block.custom.*;
-import com.brugli.broglisplants.worldgen.tree.SandboxTreeGrower;
+import com.brugli.broglisplants.worldgen.tree.custom.SandboxTreeGrower;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;

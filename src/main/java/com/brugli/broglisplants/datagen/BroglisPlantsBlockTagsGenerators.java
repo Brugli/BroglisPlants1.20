@@ -21,6 +21,9 @@ public class BroglisPlantsBlockTagsGenerators extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
 
+        this.tag(BlockTags.REPLACEABLE_BY_TREES)
+                .add(BroglisPlantsBlocks.THORN.get());
+
         this.tag(BlockTags.LEAVES)
                 .add(BroglisPlantsBlocks.SANDBOX_LEAVES.get());
 

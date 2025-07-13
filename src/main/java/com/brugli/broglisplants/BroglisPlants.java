@@ -13,6 +13,8 @@ import com.brugli.broglisplants.particle.BroglisPlantsParticles;
 import com.brugli.broglisplants.particle.custom.StinkyFlowerParticle;
 import com.brugli.broglisplants.particle.custom.StinkyFlowerPuffParticle;
 import com.brugli.broglisplants.sound.BroglisPlantsSounds;
+import com.brugli.broglisplants.worldgen.tree.BroglisPlantsFoliagePlacers;
+import com.brugli.broglisplants.worldgen.tree.BroglisPlantsTrunkPlacers;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
@@ -63,6 +65,8 @@ public class BroglisPlants
         BroglisPlantsItems.register(bus);
         BroglisPlantsParticles.register(bus);
         BroglisPlantsSounds.register(bus);
+        BroglisPlantsFoliagePlacers.register(bus);
+        BroglisPlantsTrunkPlacers.register(bus);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)

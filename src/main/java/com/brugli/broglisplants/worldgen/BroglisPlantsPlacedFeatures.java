@@ -52,7 +52,7 @@ public class BroglisPlantsPlacedFeatures {
                 List.of(RarityFilter.onAverageOnceEvery(2), CountPlacement.of(3), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, SANDBOX_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.SANDBOX_KEY),
-                treePlacement(PlacementUtils.countExtra(0, 0.1F, 1), BroglisPlantsBlocks.SANDBOX_SAPLING.get()));
+                treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BroglisPlantsBlocks.SANDBOX_SAPLING.get()));
 
         register(context, GIANT_LILY_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.GIANT_LILY_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));

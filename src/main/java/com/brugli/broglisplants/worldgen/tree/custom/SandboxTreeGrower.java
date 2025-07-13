@@ -1,4 +1,4 @@
-package com.brugli.broglisplants.worldgen.tree;
+package com.brugli.broglisplants.worldgen.tree.custom;
 
 import com.brugli.broglisplants.worldgen.BroglisPlantsConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
