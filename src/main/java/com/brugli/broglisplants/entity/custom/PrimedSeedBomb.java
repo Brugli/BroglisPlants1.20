@@ -80,9 +80,9 @@ public class PrimedSeedBomb extends Entity implements TraceableEntity {
     }
 
     protected void explode() {
-        float f = 4.0F;
-//        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), 4.0F, Level.ExplosionInteraction.NONE);
-        this.level().explode(this, this.damageSources().cactus(),null, this.getX(), this.getY(0.0625D), this.getZ(), 1.0F, false, Level.ExplosionInteraction.NONE);
+        float f = 1.0F;
+        this.level().explode(this, this.damageSources().cactus(),null, this.getX(), this.getY(), this.getZ(), (float)2 * f, false, Level.ExplosionInteraction.NONE);
+//        this.level().explode(this, this.damageSources().cactus(),null, this.getX(), this.getY(0.0625D), this.getZ(), 1.0F, false, Level.ExplosionInteraction.NONE);
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {

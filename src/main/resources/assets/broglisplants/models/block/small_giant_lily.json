@@ -5,7 +5,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "broglisplants:block/small_giant_lily",
-		"particle": "broglisplants:block/stem_particle"
+		"particle": "broglisplants:item/item_giant_lily"
 	},
 	"elements": [
 		{

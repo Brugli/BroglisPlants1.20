@@ -1,16 +1,13 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -24,11 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -59,19 +54,34 @@ public class GiantLily extends GrowingPlantHeadBlock implements LiquidBlockConta
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (!pState.getValue(IS_LARGE)) {
-            if (pLevel.getBlockState(pPos.above()).is(Blocks.AIR)) {
-                if ((pLevel.getBlockState(pPos.north(-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.north(-1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.north(1)).is(Blocks.WATER)  || pLevel.getBlockState(pPos.north(1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.east(-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.east(-1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.east(1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.east(1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.offset(1,0,1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(1,0,1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.offset(-1,0,-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(-1,0,-1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.offset(-1,0,1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(-1,0,1)).canBeReplaced())
-                && (pLevel.getBlockState(pPos.offset(1,0,-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(1,0,-1)).canBeReplaced())) {
-                    pLevel.setBlock(pPos, BroglisPlantsBlocks.GIANT_LILY.get().defaultBlockState().setValue(IS_LARGE, Boolean.TRUE), 2);
-                }
+        pLevel.scheduleTick(pPos, this, 0);
+    }
+
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pLevel.getBlockState(pPos.above()).is(Blocks.AIR)) {
+            if ((pLevel.getBlockState(pPos.north(-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.north(-1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.north(1)).is(Blocks.WATER)  || pLevel.getBlockState(pPos.north(1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.east(-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.east(-1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.east(1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.east(1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.offset(1,0,1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(1,0,1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.offset(-1,0,-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(-1,0,-1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.offset(-1,0,1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(-1,0,1)).canBeReplaced())
+                    && (pLevel.getBlockState(pPos.offset(1,0,-1)).is(Blocks.WATER) || pLevel.getBlockState(pPos.offset(1,0,-1)).canBeReplaced())) {
+                pLevel.setBlock(pPos, BroglisPlantsBlocks.GIANT_LILY.get().defaultBlockState().setValue(IS_LARGE, Boolean.TRUE), 2);
             }
+        }
+        if (!pState.canSurvive(pLevel, pPos)) {
+            pLevel.destroyBlock(pPos, false);
+        }
+    }
+
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (!this.canAttachTo(blockstate)) {
+            return false;
+        } else {
+            return blockstate.is(this.getHeadBlock()) || blockstate.is(this.getBodyBlock()) || blockstate.isFaceSturdy(pLevel, blockpos, this.growthDirection);
         }
     }
 
@@ -89,13 +99,10 @@ public class GiantLily extends GrowingPlantHeadBlock implements LiquidBlockConta
         else return SMALL_SHAPE;
     }
 
-    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
-        return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
-    }
-
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pMovedByPiston) {
         super.onPlace(pState, pLevel, pPos, pOldState, pMovedByPiston);
+        pLevel.scheduleTick(pPos, this, 0);
         if (pState.getValue(IS_LARGE)){
             pLevel.setBlock(pPos.north(-1), BroglisPlantsBlocks.GIANT_LILY_EDGE.get().defaultBlockState().setValue(GiantLilyCorner.FACING, Direction.SOUTH), 2);
             pLevel.setBlock(pPos.north(1), BroglisPlantsBlocks.GIANT_LILY_EDGE.get().defaultBlockState().setValue(GiantLilyCorner.FACING, Direction.NORTH), 2);
@@ -144,5 +151,10 @@ public class GiantLily extends GrowingPlantHeadBlock implements LiquidBlockConta
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(IS_LARGE, AGE);
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.GIANT_LILY_ITEM.get();
     }
 }

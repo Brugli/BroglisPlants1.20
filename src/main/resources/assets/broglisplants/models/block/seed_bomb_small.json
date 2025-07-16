@@ -5,7 +5,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "broglisplants:block/seed_bomb_small",
-		"particle": "broglisplants:block/seed_bomb_small"
+		"particle": "broglisplants:item/item_seed_bomb"
 	},
 	"elements": [
 		{

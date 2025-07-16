@@ -3,13 +3,16 @@
     "axis=x,style=1": {"model": "broglisplants:block/totem_horizontal", "x": 90, "y": 90},
     "axis=x,style=2": {"model": "broglisplants:block/totem_horizontal_2", "x": 90, "y": 90},
     "axis=x,style=3": {"model": "broglisplants:block/totem_horizontal_3", "x": 90, "y": 90},
+    "axis=x,style=4": {"model": "broglisplants:block/totem_horizontal_4", "x": 90, "y": 90},
 
     "axis=y,style=1": {"model": "broglisplants:block/totem"},
     "axis=y,style=2": {"model": "broglisplants:block/totem_2"},
     "axis=y,style=3": {"model": "broglisplants:block/totem_3"},
+    "axis=y,style=4": {"model": "broglisplants:block/totem_4"},
 
     "axis=z,style=1": {"model": "broglisplants:block/totem_horizontal", "x": 90},
     "axis=z,style=2": {"model": "broglisplants:block/totem_horizontal_2", "x": 90},
-    "axis=z,style=3": {"model": "broglisplants:block/totem_horizontal_3", "x": 90}
+    "axis=z,style=3": {"model": "broglisplants:block/totem_horizontal_3", "x": 90},
+    "axis=z,style=4": {"model": "broglisplants:block/totem_horizontal_4", "x": 90}
   }
 }

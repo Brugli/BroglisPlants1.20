@@ -1,8 +1,10 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -47,5 +49,10 @@ public class Stem extends GrowingPlantBodyBlock implements LiquidBlockContainer 
 
     public boolean placeLiquid(LevelAccessor pLevel, BlockPos pPos, BlockState pState, FluidState pFluidState) {
         return false;
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.GIANT_LILY_ITEM.get();
     }
 }

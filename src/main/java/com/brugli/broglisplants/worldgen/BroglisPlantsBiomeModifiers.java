@@ -28,6 +28,8 @@ public class BroglisPlantsBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_GIANT_LILY = registerKey("add_giant_lily");
 
+    public static final ResourceKey<BiomeModifier> ADD_TOTEM = registerKey("add_totem");
+
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeature = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
@@ -65,6 +67,11 @@ public class BroglisPlantsBiomeModifiers {
         context.register(ADD_GIANT_LILY, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.SPARSE_JUNGLE), biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.MANGROVE_SWAMP)),
                 HolderSet.direct(placedFeature.getOrThrow(BroglisPlantsPlacedFeatures.GIANT_LILY_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_TOTEM, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.SPARSE_JUNGLE)),
+                HolderSet.direct(placedFeature.getOrThrow(BroglisPlantsPlacedFeatures.TOTEM_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }
 

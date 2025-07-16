@@ -6,10 +6,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -33,29 +31,34 @@ public class BroglisPlantsPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> GIANT_LILY_PLACED_KEY = registerKey("giant_lily_placed");
 
+    public static final ResourceKey<PlacedFeature> TOTEM_PLACED_KEY = registerKey("totem_placed");
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, FLYTRAP_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.FLYTRAP_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(2), CountPlacement.of(3), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(3), CountPlacement.of(1), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, MANDRAKE_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.MANDRAKE_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), CountPlacement.of(2), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(4), CountPlacement.of(1), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, PITCHER_PLANT_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.PITCHER_PLANT_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(2), CountPlacement.of(3), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(3), CountPlacement.of(1), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, STINKY_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.STINKY_FLOWER_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), CountPlacement.of(2), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(4), CountPlacement.of(1), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, SUNDEW_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.SUNDEW_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(2), CountPlacement.of(3), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(3), CountPlacement.of(1), InSmallSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
 
         register(context, SANDBOX_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.SANDBOX_KEY),
-                treePlacement(PlacementUtils.countExtra(1, 0.1F, 1), BroglisPlantsBlocks.SANDBOX_SAPLING.get()));
+                treePlacement(PlacementUtils.countExtra(0, 0.1F, 1), BroglisPlantsBlocks.SANDBOX_SAPLING.get()));
 
         register(context, GIANT_LILY_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.GIANT_LILY_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(3), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
+
+        register(context, TOTEM_PLACED_KEY, configuredFeatures.getOrThrow(BroglisPlantsConfiguredFeatures.TOTEM_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(6), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
@@ -66,4 +69,6 @@ public class BroglisPlantsPlacedFeatures {
                                  List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
+
+
 }

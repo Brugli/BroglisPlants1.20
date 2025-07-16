@@ -1,12 +1,10 @@
 package com.brugli.broglisplants.worldgen.tree;
 
 import com.brugli.broglisplants.BroglisPlants;
-import com.brugli.broglisplants.worldgen.tree.custom.SandboxFoliagePlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
 
 public class BroglisPlantsFoliagePlacers {
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS =

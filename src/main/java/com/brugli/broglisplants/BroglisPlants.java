@@ -1,7 +1,6 @@
 package com.brugli.broglisplants;
 
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
-import com.brugli.broglisplants.block.custom.Thorn;
 import com.brugli.broglisplants.block.entity.BroglisPlantsBlockEntities;
 import com.brugli.broglisplants.block.entity.client.*;
 import com.brugli.broglisplants.entity.BroglisPlantsEntities;
@@ -13,33 +12,20 @@ import com.brugli.broglisplants.particle.BroglisPlantsParticles;
 import com.brugli.broglisplants.particle.custom.StinkyFlowerParticle;
 import com.brugli.broglisplants.particle.custom.StinkyFlowerPuffParticle;
 import com.brugli.broglisplants.sound.BroglisPlantsSounds;
+import com.brugli.broglisplants.worldgen.BroglisPlantsFeatures;
 import com.brugli.broglisplants.worldgen.tree.BroglisPlantsFoliagePlacers;
 import com.brugli.broglisplants.worldgen.tree.BroglisPlantsTrunkPlacers;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.level.LevelEvent;
-import net.minecraftforge.eventbus.api.GenericEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -67,6 +53,7 @@ public class BroglisPlants
         BroglisPlantsSounds.register(bus);
         BroglisPlantsFoliagePlacers.register(bus);
         BroglisPlantsTrunkPlacers.register(bus);
+        BroglisPlantsFeatures.register(bus);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -110,6 +97,7 @@ public class BroglisPlants
                 event.accept(BroglisPlantsItems.SANDBOX_SAPLING_ITEM);
                 event.accept(BroglisPlantsItems.SANDBOX_LOG_ITEM);
                 event.accept(BroglisPlantsItems.SANDBOX_WOOD_ITEM);
+                event.accept(BroglisPlantsItems.SANDBOX_LEAVES_ITEM);
                 event.accept(BroglisPlantsItems.TOTEM_ITEM);
             }
             if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {

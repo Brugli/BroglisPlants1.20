@@ -1,8 +1,7 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.entity.custom.MandrakeRootEntity;
-import com.brugli.broglisplants.entity.BroglisPlantsEntities;
-import com.brugli.broglisplants.entity.custom.MandrakeEntity;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -10,9 +9,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Silverfish;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -129,13 +126,8 @@ public class MandrakeRoot extends BaseEntityBlock implements net.minecraftforge.
         pBuilder.add(FACING, SNUGGLING);
     }
 
-//    @Override
-//    public void spawnAfterBreak(BlockState pState, ServerLevel pLevel, BlockPos pPos, ItemStack pStack, boolean pDropExperience) {
-//        super.spawnAfterBreak(pState, pLevel, pPos, pStack, pDropExperience);
-//        MandrakeEntity mandrakeEntity = BroglisPlantsEntities.MANDRAKE_ENTITY.get().create(pLevel);
-//        if (mandrakeEntity != null) {
-//            mandrakeEntity.moveTo((double)pPos.getX() + 0.5D, (double)pPos.getY(), (double)pPos.getZ() + 0.5D, 0.0F, 0.0F);
-//            pLevel.addFreshEntity(mandrakeEntity);
-//        }
-//    }
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.MANDRAKE_ROOT_ITEM.get();
+    }
 }

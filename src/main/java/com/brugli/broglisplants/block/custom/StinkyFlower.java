@@ -1,11 +1,13 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.entity.custom.StinkyFlowerEntity;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import com.brugli.broglisplants.particle.BroglisPlantsParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -106,5 +108,10 @@ public class StinkyFlower extends BaseEntityBlock implements net.minecraftforge.
             double d1 = pLevel.random.nextDouble() * (0.2 - 0.1) + 0.1;
             pLevel.addParticle(BroglisPlantsParticles.STINKY_FLOWER_PARTICLES.get(), (pPos.getX() + 0.35) + d1, pPos.getY() + 0.2D, (pPos.getZ() + 0.35) + d1, 0.0D, 0.02D, 0.0D);
         }
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.STINKY_FLOWER_ITEM.get();
     }
 }

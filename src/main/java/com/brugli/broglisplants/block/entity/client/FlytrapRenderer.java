@@ -1,7 +1,6 @@
 package com.brugli.broglisplants.block.entity.client;
 
 import com.brugli.broglisplants.block.entity.custom.FlytrapEntity;
-import com.brugli.broglisplants.block.entity.custom.SundewEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.MultiBufferSource;

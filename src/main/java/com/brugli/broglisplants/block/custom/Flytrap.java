@@ -1,21 +1,14 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.entity.custom.FlytrapEntity;
-import com.brugli.broglisplants.block.entity.custom.PitcherPlantEntity;
-import net.minecraft.client.Minecraft;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -35,7 +28,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.util.ClientUtils;
 
 public class Flytrap extends BaseEntityBlock implements net.minecraftforge.common.IPlantable {
 
@@ -120,5 +112,10 @@ public class Flytrap extends BaseEntityBlock implements net.minecraftforge.commo
             pLevel.setBlock(pPos, pState.setValue(SNAPPING, Boolean.TRUE), 2);
             pEntity.hurt(pEntity.damageSources().cactus(), 0.5F);
         }
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.FLYTRAP_ITEM.get();
     }
 }

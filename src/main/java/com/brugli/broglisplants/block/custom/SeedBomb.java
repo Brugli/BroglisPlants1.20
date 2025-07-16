@@ -1,15 +1,14 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.entity.custom.SeedBombEntity;
-import com.brugli.broglisplants.block.entity.custom.StinkyFlowerEntity;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -36,7 +35,7 @@ public class SeedBomb extends BaseEntityBlock implements BonemealableBlock {
 
     public SeedBomb(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(3)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
     }
 
     @Override
@@ -128,5 +127,10 @@ public class SeedBomb extends BaseEntityBlock implements BonemealableBlock {
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(AGE);
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.SEED_BOMB_ITEM.get();
     }
 }

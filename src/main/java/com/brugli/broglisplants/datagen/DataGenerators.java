@@ -4,7 +4,6 @@ import com.brugli.broglisplants.BroglisPlants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,7 +21,9 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new BroglisPlantsDatapackEntries(packOutput, lookupProvider));
-        BlockTagsProvider blockTagsProvider = new BroglisPlantsBlockTagsGenerators(packOutput, lookupProvider, existingFileHelper);
-        generator.addProvider(event.includeServer(), blockTagsProvider);
+
+        BroglisPlantsBlockTagsGenerators blockTagGenerator = generator.addProvider(event.includeServer(),
+                new BroglisPlantsBlockTagsGenerators(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new BroglisPlantsItemTagGenerators(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
     }
 }

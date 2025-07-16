@@ -2,6 +2,7 @@ package com.brugli.broglisplants.entity.client;
 
 import com.brugli.broglisplants.BroglisPlants;
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
+import com.brugli.broglisplants.block.custom.SeedBomb;
 import com.brugli.broglisplants.entity.custom.PrimedSeedBomb;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -9,7 +10,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.TntMinecartRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -41,7 +41,7 @@ public class PrimedSeedBombRenderer extends EntityRenderer<PrimedSeedBomb> {
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        renderWhiteSolidBlock(this.blockRenderer, BroglisPlantsBlocks.SEED_BOMB.get().defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
+        renderWhiteSolidBlock(this.blockRenderer, BroglisPlantsBlocks.SEED_BOMB.get().defaultBlockState().setValue(SeedBomb.AGE, 3), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }

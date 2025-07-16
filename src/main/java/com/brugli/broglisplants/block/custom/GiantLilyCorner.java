@@ -1,9 +1,11 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -115,21 +117,26 @@ public class GiantLilyCorner extends HorizontalDirectionalBlock implements Liqui
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
         if (pState.getValue(FACING) == Direction.NORTH && pLevel.getBlockState(pPos.offset(1,0,1)).is(BroglisPlantsBlocks.GIANT_LILY.get())) {
-            pLevel.removeBlock(pPos.offset(1,0,1), false);
+            pLevel.destroyBlock(pPos.offset(1,0,1), true);
         }
         if (pState.getValue(FACING) == Direction.EAST && pLevel.getBlockState(pPos.offset(-1,0,1)).is(BroglisPlantsBlocks.GIANT_LILY.get())) {
-            pLevel.removeBlock(pPos.offset(-1,0,1), false);
+            pLevel.destroyBlock(pPos.offset(-1,0,1), true);
         }
         if (pState.getValue(FACING) == Direction.SOUTH && pLevel.getBlockState(pPos.offset(-1,0,-1)).is(BroglisPlantsBlocks.GIANT_LILY.get())) {
-            pLevel.removeBlock(pPos.offset(-1,0,-1), false);
+            pLevel.destroyBlock(pPos.offset(-1,0,-1), true);
         }
         if (pState.getValue(FACING) == Direction.WEST && pLevel.getBlockState(pPos.offset(1,0,-1)).is(BroglisPlantsBlocks.GIANT_LILY.get())) {
-            pLevel.removeBlock(pPos.offset(1,0,-1), false);
+            pLevel.destroyBlock(pPos.offset(1,0,-1), true);
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 
     public FluidState getFluidState(BlockState pState) {
         return Fluids.WATER.getSource(false);
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.GIANT_LILY_ITEM.get();
     }
 }

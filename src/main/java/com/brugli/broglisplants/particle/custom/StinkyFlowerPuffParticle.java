@@ -6,8 +6,6 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import javax.annotation.Nullable;
-
 public class StinkyFlowerPuffParticle extends TextureSheetParticle {
     StinkyFlowerPuffParticle(ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed, boolean pSignal) {
         super(pLevel, pX, pY, pZ);

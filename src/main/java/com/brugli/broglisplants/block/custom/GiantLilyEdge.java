@@ -1,9 +1,11 @@
 package com.brugli.broglisplants.block.custom;
 
 import com.brugli.broglisplants.block.BroglisPlantsBlocks;
+import com.brugli.broglisplants.item.BroglisPlantsItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -17,7 +19,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
@@ -108,12 +109,17 @@ public class GiantLilyEdge extends HorizontalDirectionalBlock implements LiquidB
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
         if (pLevel.getBlockState(pPos.relative(pState.getValue(FACING), -1)).is(BroglisPlantsBlocks.GIANT_LILY.get())) {
-            pLevel.removeBlock(pPos.relative(pState.getValue(FACING), -1), false);
+            pLevel.destroyBlock(pPos.relative(pState.getValue(FACING), -1), true);
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 
     public FluidState getFluidState(BlockState pState) {
         return Fluids.WATER.getSource(false);
+    }
+
+    @Override
+    public Item asItem() {
+        return BroglisPlantsItems.GIANT_LILY_ITEM.get();
     }
 }

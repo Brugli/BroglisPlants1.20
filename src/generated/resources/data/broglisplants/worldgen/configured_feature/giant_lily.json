@@ -3,18 +3,9 @@
   "config": {
     "feature": {
       "feature": {
-        "type": "minecraft:simple_block",
+        "type": "broglisplants:giant_lily_feature",
         "config": {
-          "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "broglisplants:giant_lily",
-              "Properties": {
-                "age": "0",
-                "conditional": "false"
-              }
-            }
-          }
+          "count": 10
         }
       },
       "placement": [
